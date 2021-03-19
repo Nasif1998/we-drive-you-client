@@ -38,6 +38,9 @@ function App() {
           <Route path="/destination">
             <Destination></Destination>
           </Route>
+          <Route path="/destination/:id">
+            <Destination></Destination>
+          </Route>
           <Route path="/blog">
             <Blog></Blog>
           </Route>
