@@ -1,0 +1,6 @@
+.banner{
+    background-image: url("../images/city.jpg");
+    height: 100%;
+    width: 100%;
+    /* background-repeat: no-repeat; */
+}
