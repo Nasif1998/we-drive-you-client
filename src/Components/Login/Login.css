@@ -58,7 +58,7 @@ button:hover {
 
 
 @media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn, .googleBtn {
+  .cancelbtn, .signupbtn, .googleBtn, fbBtn {
     width: 100%;
   }
 } 
@@ -67,4 +67,10 @@ button:hover {
     margin-left: 100px;
     width: 40%;
     background-color: #f44336;
+}
+
+.fbBtn{
+    margin-left: 100px;
+    width: 40%;
+    background-color:blue;
 }
