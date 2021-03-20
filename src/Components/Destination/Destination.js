@@ -7,6 +7,8 @@ import { useState } from 'react';
 import Data from '../Data/Data.json';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+// import App from '../../App';
 
 
 const Destination = () => {
@@ -65,10 +67,10 @@ const Destination = () => {
                                 </Form.Group>
                             </Form>
                             {
-                                <div style={{display: 'flex', flexDirection: 'row', gap: '1rem', marginBottom: '20px'}}>
-                                    <img src={image} alt="" style={{width: '80px', height: '50px'}} srcset=""/>
+                                <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', marginBottom: '20px' }}>
+                                    <img src={image} alt="" style={{ width: '80px', height: '50px' }} srcset="" />
                                     <h6>{typeVehicle}</h6>
-                                    <img src={people} alt="" style={{width: '25px', height: '25px'}} srcset="" />
+                                    <img src={people} alt="" style={{ width: '25px', height: '25px' }} srcset="" />
                                     <h6>4</h6>
                                     <p></p>
                                     <p></p>
@@ -78,10 +80,10 @@ const Destination = () => {
                             }
 
                             {
-                                <div style={{display: 'flex', flexDirection: 'row', gap: '1rem', marginBottom: '20px'}}>
-                                    <img src={image} alt="" style={{width: '80px', height: '50px'}} srcset=""/>
+                                <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', marginBottom: '20px' }}>
+                                    <img src={image} alt="" style={{ width: '80px', height: '50px' }} srcset="" />
                                     <h6>{typeVehicle}</h6>
-                                    <img src={people} alt="" style={{width: '25px', height: '25px'}} srcset="" />
+                                    <img src={people} alt="" style={{ width: '25px', height: '25px' }} srcset="" />
                                     <h6>4</h6>
                                     <p></p>
                                     <p></p>
@@ -91,10 +93,10 @@ const Destination = () => {
                             }
 
                             {
-                                <div style={{display: 'flex', flexDirection: 'row', gap: '1rem'}}>
-                                    <img src={image} alt="" style={{width: '80px', height: '50px'}} srcset=""/>
+                                <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem' }}>
+                                    <img src={image} alt="" style={{ width: '80px', height: '50px' }} srcset="" />
                                     <h6>{typeVehicle}</h6>
-                                    <img src={people} alt="" style={{width: '25px', height: '25px'}} srcset="" />
+                                    <img src={people} alt="" style={{ width: '25px', height: '25px' }} srcset="" />
                                     <h6>4</h6>
                                     <p></p>
                                     <p></p>
@@ -106,6 +108,15 @@ const Destination = () => {
                     </Col>
                     <Col sm={8}>
                         <img src={map} alt="" srcset="" />
+                        {/* <Map google={this.props.google} zoom={14}>
+
+                            <Marker onClick={this.onMarkerClick}
+                                name={'Current location'} />
+
+                            <InfoWindow onClose={this.onInfoWindowClose}>
+                                
+                            </InfoWindow>
+                        </Map> */}
                     </Col>
                 </Row>
             </Container>
@@ -114,3 +125,8 @@ const Destination = () => {
 };
 
 export default Destination;
+
+// export default GoogleApiWrapper({
+//     apiKey: ("AIzaSyCZQdWZWsNykL30EbvVherj04c9HcqFc8")
+//   // eslint-disable-next-line no-undef
+//   })(App)
