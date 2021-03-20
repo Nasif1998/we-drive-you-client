@@ -16,7 +16,6 @@ const Destination = () => {
         setVehicle(Data[id - 1]);
     }, [id])
 
-    // console.log(vehicle.typeVehicle);
     const newId = vehicle.id;
     console.log(newId);
 
@@ -32,24 +31,21 @@ const Destination = () => {
         var text2 = document.getElementById('form1To').value;
         document.getElementById('form2To').value = text2;
     }
-    // console.log(vehicle);
 
     return (
         <div>
-            <h1>This is destination</h1>
-            <p>id: {id}</p>
             <Container>
                 <Row>
                     <Col sm={4}>
                         <Form id="form1">
                             <Form.Group>
                                 <Form.Label>Pick From</Form.Label>
-                                <Form.Control type="text" id="form1From" />
+                                <input type="text" id="form1From" required></input>
                             </Form.Group>
 
                             <Form.Group>
                                 <Form.Label>Pick To</Form.Label>
-                                <Form.Control type="text" id="form1To" />
+                                <Form.Control type="text" id="form1To" required />
                             </Form.Group>
                             <Button onClick={showForm2} value="click" variant="primary" type="button">
                                 Search
@@ -67,22 +63,6 @@ const Destination = () => {
                                     <Form.Label>Destination To</Form.Label>
                                     <Form.Control type="text" id="form2To" />
                                 </Form.Group>
-                                {/* {
-                                id ===1 ? <div>
-                                            <h6>{typeVehicle}</h6>
-                                            <img src={people} alt="" srcset=""/>
-                                            <h6>4</h6>
-                                            <br/>
-                                            <h6>{typeVehicle}</h6>
-                                            <img src={people} alt="" srcset=""/>
-                                            <h6>4</h6>
-                                            <br/>
-                                            <h6>{typeVehicle}</h6>
-                                            <img src={people} alt="" srcset=""/>
-                                            <h6>4</h6>
-                                         </div> :null
-                                         
-                            } */}
                             </Form>
                             {
                                 <div style={{display: 'flex', flexDirection: 'row', gap: '1rem', marginBottom: '20px'}}>

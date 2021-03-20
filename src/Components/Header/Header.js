@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css'
 
-const Header = (props) => {
-    const {loggesInUser, setLoggedInUser} = props;
+const Header = () => {
+    
     return (
         <div>
-            <h1 className="header">Urban Riders</h1>
+            <h1 style={{color: 'yellowgreen'}} className="header">We Drive You</h1>
             <nav className="nav">
                 <ul>
                     <li>
@@ -24,9 +24,6 @@ const Header = (props) => {
                     <li>
                         <Link to="/login">Login</Link>
                     </li>
-                    {/* <li>
-                        <h6>User: {() => setLoggedInUser(loggedInUser)}</h6>
-                    </li> */}
                 </ul>
             </nav>
         </div>

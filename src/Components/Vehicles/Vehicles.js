@@ -14,7 +14,6 @@ const Vehicles = (props) => {
         border: '1px solid purple',
         marginTop: '200px',
         marginBottom: '250px',
-        // marginLeft: '10px',
         padding: '20px',
         borderRadius: '20px',
         textAlign: 'center',

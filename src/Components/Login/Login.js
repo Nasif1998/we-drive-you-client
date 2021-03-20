@@ -82,11 +82,6 @@ const Login = () => {
                     newUserInfo.error = '';
                     newUserInfo.success = true;
                     setUser(newUserInfo);
-                    // const {name, email} = { ...user };
-                    // const newUserInfo = {name, email};
-                    // newUserInfo.error = '';
-                    // newUserInfo.success = true;
-                    // setUser(newUserInfo);
                     setLoggedInUser(newUserInfo);
                     history.replace(from);
                 })
@@ -113,9 +108,7 @@ const Login = () => {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                // The email of the user's account used.
                 var email = error.email;
-                // The firebase.auth.AuthCredential type that was used.
                 var credential = error.credential;
                 // ...
             });
@@ -126,8 +119,6 @@ const Login = () => {
             .auth()
             .signInWithPopup(fbProvider)
             .then((result) => {
-                // var user = result.user;
-                // console.log(user);
                 const {displayName, email} = result.user;
                 const signedInUser = {name: displayName, email}
                 setLoggedInUser(signedInUser);
@@ -136,12 +127,9 @@ const Login = () => {
                 // ...
             })
             .catch((error) => {
-                // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                // The email of the user's account used.
                 var email = error.email;
-                // The firebase.auth.AuthCredential type that was used.
                 var credential = error.credential;
 
                 // ...
@@ -150,7 +138,6 @@ const Login = () => {
 
     return (
         <div>
-            {/* <p>Email: {user.email}</p> */}
             <form style={{ border: "1px solid #ccc" }} onSubmit={handleSubmit}>
                 <div className="container">
                     {<h1>{!newUser ? 'Log in' : 'Sign Up'}</h1>}
@@ -169,11 +156,8 @@ const Login = () => {
                     {newUser && <label htmlFor="psw-repeat"><b>Repeat Password</b></label>}
                     {newUser && <input id="password_repeat" type="password" placeholder="Repeat Password" name="password-repeat" required></input>}
 
-                    {/* <input type="checkbox" name="remember" style={{ marginBottom: "15px" }}></input>
-                    <label htmlFor="">Remember me</label> */}
 
                     <div className="clearfix">
-                        {/* <button type="button" class="cancelbtn">Cancel</button> */}
                         <button type="submit" className="signupbtn">{newUser ? 'Sign Up' : 'Log in'}</button>
                     </div>
                 </div>
