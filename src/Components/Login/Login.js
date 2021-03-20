@@ -6,6 +6,7 @@ import "firebase/auth";
 import firebaseConfig from '../firebase.config';
 import { useContext } from 'react';
 import { UserContext } from '../../App';
+import { useHistory, useLocation } from 'react-router-dom';
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
@@ -13,6 +14,9 @@ if (!firebase.apps.length) {
 
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const history= useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } };
     const [newUser, setNewUser] = useState(true);
     const [user, setUser] = useState({
         name: '',
@@ -84,7 +88,7 @@ const Login = () => {
                     // newUserInfo.success = true;
                     // setUser(newUserInfo);
                     setLoggedInUser(newUserInfo);
-                    console.log(newUserInfo);
+                    history.replace(from);
                 })
                 .catch((error) => {
                     const newUserInfo = { ...user };
@@ -103,6 +107,7 @@ const Login = () => {
                 const {displayName, email} = result.user;
                 const signedInUser = {name: displayName, email}
                 setLoggedInUser(signedInUser);
+                history.replace(from);
                 // ...
             }).catch((error) => {
                 // Handle Errors here.
@@ -126,6 +131,7 @@ const Login = () => {
                 const {displayName, email} = result.user;
                 const signedInUser = {name: displayName, email}
                 setLoggedInUser(signedInUser);
+                history.replace(from);
 
                 // ...
             })

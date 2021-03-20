@@ -2,42 +2,52 @@ import React from 'react';
 import "bootstrap/dist/css/bootstrap.css";
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import map from '../images/Map.png'
+import people from '../images/peopleicon.png'
 import { useState } from 'react';
 import Data from '../Data/Data.json';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
 
 const Destination = () => {
+    let { id } = useParams();
     const [vehicle, setVehicle] = useState({});
     useEffect(() => {
-        setVehicle(Data);
-    }, [])
+        setVehicle(Data[id - 1]);
+    }, [id])
 
-    // const {id, image, typeVehicle} = vehicle;
+    // console.log(vehicle.typeVehicle);
+    const newId = vehicle.id;
+    console.log(newId);
+
+    const { image, typeVehicle } = vehicle;
 
     const showForm2 = () => {
-        document.getElementById('form2').style.display="block";
-        document.getElementById('form1').style.display="none"; 
-            
-        var text1  =  document.getElementById('form1From').value;
+        document.getElementById('form2').style.display = "block";
+        document.getElementById('form1').style.display = "none";
+
+        var text1 = document.getElementById('form1From').value;
         document.getElementById('form2From').value = text1;
 
         var text2 = document.getElementById('form1To').value;
         document.getElementById('form2To').value = text2;
     }
+    // console.log(vehicle);
 
     return (
         <div>
             <h1>This is destination</h1>
+            <p>id: {id}</p>
             <Container>
                 <Row>
                     <Col sm={4}>
                         <Form id="form1">
-                            <Form.Group controlId="formBasicEmail">
+                            <Form.Group>
                                 <Form.Label>Pick From</Form.Label>
-                                <Form.Control type="text" id="form1From"  />
+                                <Form.Control type="text" id="form1From" />
                             </Form.Group>
 
-                            <Form.Group controlId="formBasicPassword">
+                            <Form.Group>
                                 <Form.Label>Pick To</Form.Label>
                                 <Form.Control type="text" id="form1To" />
                             </Form.Group>
@@ -46,17 +56,73 @@ const Destination = () => {
                             </Button>
                         </Form>
 
-                        <Form id="form2" style={{display: 'none'}}>
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Label>Destination From</Form.Label>
-                                <Form.Control type="text" id="form2From"  />
-                            </Form.Group>
+                        <div id="form2" style={{ display: 'none' }}>
+                            <Form>
+                                <Form.Group>
+                                    <Form.Label>Destination From</Form.Label>
+                                    <Form.Control type="text" id="form2From" />
+                                </Form.Group>
 
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Destination To</Form.Label>
-                                <Form.Control type="text" id="form2To" />
-                            </Form.Group>
-                        </Form>
+                                <Form.Group>
+                                    <Form.Label>Destination To</Form.Label>
+                                    <Form.Control type="text" id="form2To" />
+                                </Form.Group>
+                                {/* {
+                                id ===1 ? <div>
+                                            <h6>{typeVehicle}</h6>
+                                            <img src={people} alt="" srcset=""/>
+                                            <h6>4</h6>
+                                            <br/>
+                                            <h6>{typeVehicle}</h6>
+                                            <img src={people} alt="" srcset=""/>
+                                            <h6>4</h6>
+                                            <br/>
+                                            <h6>{typeVehicle}</h6>
+                                            <img src={people} alt="" srcset=""/>
+                                            <h6>4</h6>
+                                         </div> :null
+                                         
+                            } */}
+                            </Form>
+                            {
+                                <div style={{display: 'flex', flexDirection: 'row', gap: '1rem', marginBottom: '20px'}}>
+                                    <img src={image} alt="" style={{width: '80px', height: '50px'}} srcset=""/>
+                                    <h6>{typeVehicle}</h6>
+                                    <img src={people} alt="" style={{width: '25px', height: '25px'}} srcset="" />
+                                    <h6>4</h6>
+                                    <p></p>
+                                    <p></p>
+                                    <p></p>
+                                    <h6>$67</h6>
+                                </div>
+                            }
+
+                            {
+                                <div style={{display: 'flex', flexDirection: 'row', gap: '1rem', marginBottom: '20px'}}>
+                                    <img src={image} alt="" style={{width: '80px', height: '50px'}} srcset=""/>
+                                    <h6>{typeVehicle}</h6>
+                                    <img src={people} alt="" style={{width: '25px', height: '25px'}} srcset="" />
+                                    <h6>4</h6>
+                                    <p></p>
+                                    <p></p>
+                                    <p></p>
+                                    <h6>$67</h6>
+                                </div>
+                            }
+
+                            {
+                                <div style={{display: 'flex', flexDirection: 'row', gap: '1rem'}}>
+                                    <img src={image} alt="" style={{width: '80px', height: '50px'}} srcset=""/>
+                                    <h6>{typeVehicle}</h6>
+                                    <img src={people} alt="" style={{width: '25px', height: '25px'}} srcset="" />
+                                    <h6>4</h6>
+                                    <p></p>
+                                    <p></p>
+                                    <p></p>
+                                    <h6>$67</h6>
+                                </div>
+                            }
+                        </div>
                     </Col>
                     <Col sm={8}>
                         <img src={map} alt="" srcset="" />

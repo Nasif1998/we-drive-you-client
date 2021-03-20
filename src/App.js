@@ -14,41 +14,44 @@ import { createContext } from 'react';
 import { useState } from 'react';
 import Blog from './Components/Blog/Blog';
 import Contact from './Components/Contact/Contact';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Destination2 from './Components/Destination2/Destination2';
 
 export const UserContext = createContext();
+
 
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <p>Name: {loggedInUser.name}</p>
-      <Router>
-        <Header></Header>
-        <Switch>
-          <Route path="/home">
-            <Home></Home>
-          </Route>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="/login">
-            <Login></Login>
-          </Route>
-          <Route path="/destination">
-            <Destination></Destination>
-          </Route>
-          <Route path="/destination/:id">
-            <Destination></Destination>
-          </Route>
-          <Route path="/blog">
-            <Blog></Blog>
-          </Route>
-          <Route path="/contact">
-            <Contact></Contact>
-          </Route>
-        </Switch>
-      </Router>
+        {/* <p>Name: {loggedInUser.name}</p> */}
+        <Router>
+          <Header loggedInUser = {loggedInUser} setLoggedInUser={setLoggedInUser}></Header>
+          <Switch>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            <PrivateRoute path="/destination/:id">
+              <Destination></Destination>
+            </PrivateRoute>
+            <Route path="/destination">
+              <Destination2></Destination2>
+             </Route>
+            <Route path="/blog">
+              <Blog></Blog>
+            </Route>
+            <Route path="/contact">
+              <Contact></Contact>
+            </Route>
+          </Switch>
+        </Router>
     </UserContext.Provider>
   );
 }

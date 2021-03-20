@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+
 const Vehicles = (props) => {
-    const {id, vehicle, image } = props.vehicle;
+    const {id, typeVehicle, image } = props.vehicle;
 
     const imageStyle = {
         width: '200px'
@@ -22,7 +24,7 @@ const Vehicles = (props) => {
         <div>
             <div style={vehicleStyle}>
                 <img style={imageStyle} src={image} alt="" />
-                <h3>{vehicle}</h3>
+                <h3>{typeVehicle}</h3>
                 <br />
                 <p> <Link to={`/destination/${id}`}>
                     <button style={{ backgroundColor: 'orange' }}>Select</button>
