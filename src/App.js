@@ -27,7 +27,7 @@ function App() {
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
         <Router>
           <Header></Header>
-          <h4 style={{textAlign: 'center'}}>User Email: {loggedInUser.email}</h4>
+          <p style={{textAlign: 'center'}}>User Email: {loggedInUser.email}</p>
           <Switch>
             <Route path="/home">
               <Home></Home>

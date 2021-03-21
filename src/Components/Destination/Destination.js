@@ -108,6 +108,7 @@ const Destination = () => {
                     </Col>
                     <Col sm={8}>
                         <img src={map} alt="" srcset="" />
+
                         {/* <Map google={this.props.google} zoom={14}>
 
                             <Marker onClick={this.onMarkerClick}
@@ -117,6 +118,7 @@ const Destination = () => {
                                 
                             </InfoWindow>
                         </Map> */}
+                        
                     </Col>
                 </Row>
             </Container>
