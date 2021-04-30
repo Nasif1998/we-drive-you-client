@@ -10,8 +10,6 @@ This is basically a online vehicles booking service. In my project I tried to sh
 5. Then you can go to the description. There you can input route.
 
 
-### In the description I tried to show google map but I failed. So I had to comment out the codes I wrote because for those code may entire description shows blank. So I had to comment out this. For submitting assignment I have to submit without google map but I'll look into it.
-
 ## Live Link:
 [Click-here](https://urban-rides-de25e.web.app)
 
