@@ -9,6 +9,9 @@ This is basically a online vehicles booking service. In my project I tried to sh
 4. You can also sign in with google and facebook account.
 5. Then you can go to the description. There you can input route.
 
+###Technologis:
+React.js, React-Router, Firebase
+
 
 ## Live Link:
 [Click-here](https://urban-rides-de25e.web.app)
